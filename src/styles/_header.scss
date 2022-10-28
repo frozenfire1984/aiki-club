@@ -1,0 +1,133 @@
+.header {
+  display: flex;
+  flex-direction: column;
+
+  &__navbar {
+    order: 1;
+    background-color: $color-accent_sec;
+
+    @media (max-width: $md-) {
+      .container {
+        padding-inline: 0;
+      }
+
+    }
+  }
+
+  &__info {
+    order: 2;
+  }
+}
+
+.navbar {
+  --size: 5rem;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  color: $color_text_inversed;
+  justify-content: space-between;
+
+
+  :where(*) {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  &__brand {
+    .brand__logo {
+      width: var(--size);
+      padding: .5em;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    width: var(--size);
+    background-color: darken($color_accent_sec, 10%);
+    transition: $duration background-color ease;
+    cursor: pointer;
+
+    &::before, &::after {
+      content: "";
+      height: 2px;
+      width: 50%;
+      margin-block: .3em;
+      background-color: $color_muted_inversed;
+      transition: $duration transform ease;
+    }
+
+    &:hover {
+      background-color: darken($color_accent_sec, 20%);
+    }
+
+    &_active {
+      &::before {
+        transform: translateY(calc(.3em + 1px)) rotate(45deg);
+      }
+      &::after {
+        transform: translateY(calc(-.3em - 1px)) rotate(-45deg);
+      }
+    }
+  }
+
+  &__menu {
+    display: none;
+    flex: 1 0 100%;
+  }
+
+  &__search {
+    display: none;
+  }
+}
+
+.menu {
+  background-color: darken($color_accent_sec, 10%);
+  border-top: 1px fade-out($color_muted_inversed, .5) solid;
+
+  ul {
+    @include reset;
+    padding-bottom: .5em;
+  }
+
+  li {
+    position: relative;
+
+    > ul {
+      display: none;
+    }
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      left: 1em;
+      top: 50%;
+      color: fade-out($color_muted_inversed, .5) ;
+    }
+
+    &::before {
+      width: .5em;
+      aspect-ratio: 1 / 1;
+      background-color: currentColor;
+      transform: translate(-50%, -50%);
+      border-radius: 100%;
+    }
+
+    &::after {
+      right: 0;
+      bottom: 0;
+      border: 1px currentColor dotted;
+      border-right: none;
+      border-top: none;
+    }
+  }
+
+  a {
+    @include link-reset($color_text_inversed);
+    display: block;
+    padding: .7em .5em .7em 2em;
+  }
+}

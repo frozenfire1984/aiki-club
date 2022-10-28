@@ -1,0 +1,34 @@
+$delta: .0001px;
+$xxs: 0;
+$xs: 320px;
+$xs-: $xs - $delta;
+$sm: 576px;
+$sm-: $sm - $delta;
+$md: 768px;
+$md-: $md - $delta;
+$lg: 992px;
+$lg-: $lg - $delta;
+$xl: 1200px;
+$xl-: $xl - $delta;
+$xxl: 1400px;
+$xxl-: $xxl - $delta;
+
+$font-size-min: 12px;
+$font-size-regular: 16px;
+$font-size-heading: 24px;
+
+$ff-base: 'Montserrat', Helvetica, sans-serif;
+
+$px-size_xxs: 10px;
+$px-size: $font-size-regular;
+
+$pad: rem(15px);
+
+$color_accent_sec: #666699;
+$color_accent_primary: #c5111d;
+$color_muted: #9d9daf;
+$color_muted_inversed: #fff;
+$color_text: #212131;
+$color_text_inversed: #fff;
+
+$duration: 1s;
