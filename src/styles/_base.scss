@@ -1,0 +1,22 @@
+@use "sass:map";
+@use "vars" as *;
+
+@layer base {
+  html {
+    font-size: 62.5%;
+
+    @media (min-width: #{map.get($media, sm, gt)}) {
+      font-size: 80%;
+    }
+
+    @media (min-width: #{map.get($media, lg, gt)}) {
+      font-size: 100%;
+    }
+  }
+
+  body {
+    font-family: 'Tahoma', sans-serif;
+    font-size: rem(16px);
+  }
+}
+

@@ -1,33 +1,39 @@
-@mixin fill {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
+@use 'sass:math';
+//@use 'vars' as *;
 
-@mixin reset {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-@mixin link-reset($color: $color-text) {
-  color: $color;
-
-  &:link, &:visited, &:hover, &:active {
-    color: $color;
-    text-decoration: none;
+//@layer mixins {
+  @mixin fill {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
   }
-}
 
-@function rem($val){
-  $remSize: $val / $px-size;
-  @return #{$remSize}rem;
-}
+  @mixin reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-@function rem_xxs($val){
-  $remSize: $val / $px-size_xxs;
-  @return #{$remSize}rem;
-}
+  @mixin link-reset($color: $color-text) {
+    color: $color;
 
+    &:link, &:visited, &:hover, &:active {
+      color: $color;
+      text-decoration: none;
+    }
+  }
+
+  //@function rem($val) {
+    //$remSize: math.div($val, $px-size);
+    //@return #{$remSize}rem;
+    //@return $val
+  //}
+
+  //@function rem_xxs($val) {
+    //$remSize: math.div($val, $px-size_xxs);
+    //@return #{$remSize}rem;
+    //@return $val
+  //}
+//}

@@ -12,11 +12,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@csstools/postcss-cascade-layers": "^1.1.1",
+    "autoprefixer": "^10.4.13",
     "cross-env": "^7.0.3",
     "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
     "jquery": "^3.6.1",
-    "node-normalize-scss": "^8.1.2",
-    "reset-css": "^5.0.1"
+    "postcss": "^8.4.18",
+    "postcss-preset-env": "^7.8.2",
+    "postcss-rem": "^2.0.2",
+    "postcss-utilities": "^0.8.4",
+    "sanitize.css": "^13.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.27.10",

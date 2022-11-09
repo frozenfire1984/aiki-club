@@ -1,0 +1,13 @@
+@layer typo {
+  $size: 30px;
+
+  @for $i from 1 through 6 {
+    h#{$i} {
+      color: hsl(0deg, 0%, 30%);
+      font-weight: 600;
+      font-size: rem($size);
+      $size: $size - 2px;
+    }
+  }
+}
+

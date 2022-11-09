@@ -1,68 +1,63 @@
-.screen-info {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10000;
-  background: #fff;
-  padding: 10px;
-  box-shadow: 0 0 5px hsla(0,0%,0%,.5);
-  color: #000;
-  --size: "xxs";
+@use "sass:meta";
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+@use "vars" as *;
 
-  &#{&}_top-right {
-    right: 0;
-    left: auto;
+@layer debug {
+  .screen-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 0 5px hsla(0,0%,0%,.5);
+    color: #000;
+    --size: "xxs";
+
+    &#{&}_top-right {
+      right: 0;
+      left: auto;
+    }
+
+    &#{&}_bottom-right {
+      top: auto;
+      right: 0;
+      bottom: 0;
+      left: auto;
+    }
+
+    &#{&}_bottom-left {
+      top: auto;
+      bottom: 0;
+    }
+
+    &#{&}_hidden {
+      display: none;
+    }
+
+    body:hover &#{&}_by-hover-body-hidden {
+      display: none;
+    }
+
+    &::before {
+      content: var(--size);
+    }
+
+    @each $item in $media {
+      @media (min-width: #{map.get(list.nth($item, 2), "gt")}) {
+        --size: "#{string.quote(list.nth($item, 1))}";
+      }
+    }
   }
 
-  &#{&}_bottom-right {
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: auto;
-  }
-
-  &#{&}_bottom-left {
-    top: auto;
-    bottom: 0;
-  }
-
-  &#{&}_hidden {
-    display: none;
-  }
-
-  body:hover &#{&}_by-hover-body-hidden {
-    display: none;
-  }
-
-  &::before {
-    content: var(--size);
-  }
-
-  @media (min-width: $xs) {
-    --size: "xs";
-  }
-
-  @media (min-width: $sm) {
-    --size: "sm";
-  }
-
-  @media (min-width: $md) {
-    --size: "md";
-  }
-
-  @media (min-width: $lg) {
-    --size: "lg";
-  }
-
-  @media (min-width: $xl) {
-    --size: "xl";
-  }
-
-  @media (min-width: $xxl) {
-    --size: "xxl+";
+  .hide {
+    display: none !important;
   }
 }
 
-.hide {
-  display: none !important;
-}
+
+
+
+

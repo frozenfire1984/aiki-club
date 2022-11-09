@@ -1,40 +1,32 @@
-@import 'normalize.css';
-@import 'vars';
-@import 'mixins';
-@import 'debug';
-@import 'typography';
-@import 'elements';
-@import 'header';
-@import 'forms';
-
-html {
-  font-size: 62.5%;
-
-  @media (min-width: $sm) {
-    font-size: 80%;
-  }
-
-  @media (min-width: $lg) {
-    font-size: 100%;
-  }
-}
-
-body {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  min-width: 300px;
-  font-family: 'Tahoma', sans-serif;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+@use "debug";
+@use 'typo';
+@use 'base';
+@use 'layout';
+@use 'elements';
+@use 'header';
+@use 'forms';
+@import 'sanitize.build.css' layer;
+@layer debug, typo, base, layout, forms, elements, header;
 
 
 
-.primary {
-  flex: 1;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

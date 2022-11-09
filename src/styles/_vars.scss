@@ -1,34 +1,73 @@
 $delta: .0001px;
-$xxs: 0;
-$xs: 320px;
-$xs-: $xs - $delta;
-$sm: 576px;
-$sm-: $sm - $delta;
-$md: 768px;
-$md-: $md - $delta;
-$lg: 992px;
-$lg-: $lg - $delta;
-$xl: 1200px;
-$xl-: $xl - $delta;
-$xxl: 1400px;
-$xxl-: $xxl - $delta;
+$media: (
+  xxs: (
+    gt: 0,
+    lt: 0,
+  ),
+  xs: (
+    gt: 320px,
+    lt: 320px - $delta,
+  ),
+  sm: (
+    gt: 576px,
+    lt: 576px - $delta,
+  ),
+  md: (
+    gt: 768px,
+    lt: 768px - $delta,
+  ),
+  lg: (
+    gt: 992px,
+    lt: 992px - $delta,
+  ),
+  xl: (
+    gt: 1200px,
+    lt: 1200px - $delta,
+  ),
+  xxl: (
+    gt: 1400px,
+    lt: 1400px - $delta,
+  ),
+);
 
-$font-size-min: 12px;
-$font-size-regular: 16px;
-$font-size-heading: 24px;
+$colors: (
+  primary: (
+    accent: #c5111d,
+    solid: #666699
+  ),
+  muted:  (
+    regular: #c5111d,
+    invert: #fff,
+    inverted: #fff,
+  ),
+  text:  (
+    regular: #212131,
+    invert: #fff,
+    inverted: #fff,
+  ),
+);
 
-$ff-base: 'Montserrat', Helvetica, sans-serif;
+@function color_flat() {
 
-$px-size_xxs: 10px;
-$px-size: $font-size-regular;
+}
 
-$pad: rem(15px);
+$sizes: (
+  pad: 10px
+);
 
-$color_accent_sec: #666699;
-$color_accent_primary: #c5111d;
-$color_muted: #9d9daf;
-$color_muted_inversed: #fff;
-$color_text: #212131;
-$color_text_inversed: #fff;
+$misc: (
+  dur: 1s,
+);
 
-$duration: 1s;
+$typo: (
+  base: (
+    family: 'Montserrat, Helvetica, sans-serif',
+    size: 16px,
+  ),
+);
+
+
+
+
+
+

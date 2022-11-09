@@ -2,29 +2,40 @@ const {src, dest, series, watch} = require('gulp')
 const sass = require('gulp-sass')(require('sass'));
 const include = require("gulp-file-include");
 const sourcemaps = require("gulp-sourcemaps");
-const autoprefixer = require("gulp-autoprefixer");
 const browserSync = require('browser-sync').create()
 const log = require("fancy-log");
 const del = require("del");
 const concat = require("gulp-concat");
 const rename = require('gulp-rename');
 
+const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
+const postcssRem = require('postcss-rem');
+const postcssPresetEnv = require("postcss-preset-env");
+const postcssUtilities = require('postcss-utilities');
+
 const clear = () => {
 	return del('dist')
 }
 
 const scss = () => {
-	return src('src/styles/**/*.scss')
+	return src(['src/styles/style.scss'])
 		.pipe(sourcemaps.init())
-		.pipe(sass({
+		.pipe(sass.sync({
 			outputStyle: 'expanded',
-			//includePaths: require("node-normalize-scss").with("dist")
 		})
 		.on('error', sass.logError))
-		.pipe(autoprefixer({
+		/*.pipe(autoprefixer({
 			cascade: true,
 			grid: 'no-autoplace',
-		}))
+		}))*/
+		.pipe(postcss([
+			autoprefixer({grid: true}),
+			postcssUtilities({ ie8: true }),
+			postcssRem({
+				fallback: true,
+			}),
+		]))
 		.pipe(sourcemaps.write('.'))
 		.pipe(dest('dist/styles'))
 		.on('finish', () => {
@@ -58,16 +69,13 @@ const script = () => {
 		});
 }
 
-
-
-const normalize = () => {
-	return src('./node_modules/normalize.css/normalize.css')
-		//.pipe(rename('_normalize.scss'))
+const sanitize = () => {
+	return src('./node_modules/sanitize.css/*.css')
+		.pipe(concat('sanitize.build.css'))
 		.pipe(dest('dist/styles'))
 		.on('finish', () => {
-			log("normalize copied")
+			log("sanitize copied")
 		});
-	
 }
 
 const copy = () => {
@@ -88,5 +96,5 @@ const serve = () => {
 	watch('src/js/**/*.js', series(script)).on('change', browserSync.reload)
 }
 
-exports.serve = series(clear, scss, html, copy, normalize, script, serve)
-exports.build = series(clear, scss, html, copy, normalize, script)
+exports.serve = series(clear, scss, sanitize, html, copy, script, serve)
+exports.build = series(clear, scss, sanitize, html, copy, script)

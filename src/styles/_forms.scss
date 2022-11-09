@@ -1,3 +1,21 @@
-.input {
-  width: 100%;
+@use "sass:map";
+@use "vars" as v;
+
+@layer forms {
+  .control {
+    &__field {
+      width: 100%;
+      border-radius: rem(6px);
+      border: 1px map.get(v.$colors, "muted", "regular") solid;
+      @debug v.$colors;
+
+      &_input {
+        height: rem(37px);
+      }
+    }
+
+    *:nth-last-child(3) + .control__label + .control__input {
+      //outline: 1px red solid;
+    }
+  }
 }
