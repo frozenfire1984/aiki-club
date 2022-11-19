@@ -1,0 +1,96 @@
+@use "sass:map";
+@use "sass:color";
+@use "vars" as *;
+@use "mixins" as *;
+
+.add-menu {
+  @include reset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 2.5rem;
+  row-gap: 1em;
+  column-gap: 5%;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 6.7em;
+    color: map.get($colors, primary, accent);
+  }
+
+  &__link {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    //outline: 1px blue solid;
+    gap: rem(23px);
+
+    @include link-reset();
+  }
+
+  &__img-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: MIN(60%, rem(100px));
+    aspect-ratio: 1 / 1;
+    perspective: 80px;
+  }
+
+  &__img {
+    //transition: all .5s ease;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    text-align: center;
+    font-size: .7em;
+    line-height: 1.3;
+    min-height: rem(52px);
+    //transition: all .5s ease;
+
+  }
+
+  @media (min-width: #{map.get($media, lg, gt)}) {
+    font-size: rem(21px);
+
+    &__title {
+      font-size: 1em;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__img, &__title {
+      transition: all map.get($misc, dur) ease;
+    }
+
+    &__title {
+      @util text-stroke(1px, #{map.get($colors, text, inverted)});
+    }
+
+    &__link:hover {
+      .add-menu__img {
+        transform: rotateY(180deg);
+      }
+
+      .add-menu__title {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 5px fade-out(map.get($colors, primary, accent), .7));
+      }
+    }
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    &__link {
+      &:hover, &:active {
+        outline: 1px dotted currentColor;
+      }
+    }
+  }
+}

@@ -33,10 +33,11 @@ $media: (
 $colors: (
   primary: (
     accent: #c5111d,
-    solid: #666699
+    solid: #666699,
+    space: #fff,
   ),
   muted:  (
-    regular: #c5111d,
+    regular: #9d9daf,
     invert: #fff,
     inverted: #fff,
   ),
@@ -47,12 +48,12 @@ $colors: (
   ),
 );
 
-@function color_flat() {
-
-}
-
 $sizes: (
-  pad: 10px
+  pad: 10px,
+  control: (
+    default: 37px,
+    lg: 45px,
+  )
 );
 
 $misc: (
@@ -64,7 +65,24 @@ $typo: (
     family: 'Montserrat, Helvetica, sans-serif',
     size: 16px,
   ),
+  size: (
+    em: (
+      xs: .5em,
+      sm: .75em,
+      md: 1em,
+      lg: 1.25em,
+    )
+  )
 );
+
+$interface: (
+  divider: (
+    muted: (
+      regular: #9d9daf,
+      inverted: #fff,
+    )
+  )
+)
 
 
 

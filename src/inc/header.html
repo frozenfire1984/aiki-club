@@ -1,42 +1,158 @@
 <div class="screen-info screen-info_by-hover-body-hidden"></div>
 <header class="header">
+	<div class="header__info">
+		<div class="container">
+			<div class="info">
+				<div class="info__inner">
+					<a href="#" class="info__brand brand">
+						<img class="brand__logo" src="images/logo.jpg" alt=""/>
+						<span class="brand__title">Молния</span>
+					</a>
+					<div class="info__item info__item_title">
+						<h1 class="info__title">
+							Санкт-Петербургский клуб Айкидо Ивама&nbsp;Рю
+							<!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, cupiditate?-->
+							<!--Санкт-Петербургский клуб Айкидо Ивама&nbsp;Рю
+							Санкт-Петербургский клуб Айкидо Ивама&nbsp;Рю-->
+						</h1>
+					</div>
+					<div class="info__item info__item_phone">
+						<i class="icon icon-phone-hang-up"></i>
+						<!--8-921-994-92-12-->
+
+						<a class="info__phone" href="tel:89219949212">8-921-994-92-12</a>
+					</div>
+					<div class="info__item info__item_address">
+						<!--Беговая улица, дом 3-->
+
+
+						<i class="icon icon-location_on"></i>
+						<div class="info__address">
+							<address class="info__address-body">Беговая улица, дом 3</address>
+							<p class="info__address-direction">Вход справа со двора, 2-ой этаж, клуб <q>ДоМо</q></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="header__navbar">
 		<div class="container">
 			<div class="navbar">
-				<div class="navbar__brand brand">
-					<img class="brand__logo" src="images/logo.jpg" alt="">
+				<a href="#" class="navbar__brand brand">
+					<img class="brand__logo" src="images/logo.jpg" alt=""/>
 					<span class="brand__title">Молния</span>
-				</div>
-				<div id="nav-toggle" class="navbar__btn"></div>
-				<div id="nav-menu" class="navbar__menu menu">
-					<nav>
-						<ul>
-							<li>
-								<a href="#">О клубе</a>
-							</li>
-							<li>
-								<a href="#">Новости</a>
-							</li>
-							<li>
-								<a href="#">Галерея</a>
-							</li>
-							<li>
-								<a href="#">Начинающим</a>
-							</li>
-							<li>
-								<a href="#">Контакты</a>
-							</li>
-							<li>
-								<a href="#">Ссылки</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
+				</a>
+				<div class="navbar__btn" id="nav-toggle"></div>
+				<nav class="navbar__menu menu" id="nav-menu">
+					<ul>
+						<li>
+							<a href="#">О клубе</a>
+						</li>
+						<li>
+							<a href="#">Новости</a>
+						</li>
+						<li>
+							<a href="#">Галерея</a>
+						</li>
+						<li>
+							<a href="#">Начинающим</a>
+						</li>
+						<li>
+							<a href="#">Контакты</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<!--<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Контакты</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>-->
+						<!--<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Контакты</a>
+						</li>-->
+						<!--<li>
+							<a href="#">Контакты</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>-->
+						<!--<li>
+							<a href="#">Контакты</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Контакты</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Контакты</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Контакты</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>-->
+						<!--<li>
+							<a href="#">Начинающим</a>
+						</li>
+						<li>
+							<a href="#">Контакты</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>
+						<li>
+							<a href="#">Начинающим</a>
+						</li>
+						<li>
+							<a href="#">Контакты</a>
+						</li>
+						<li>
+							<a href="#">Ссылки</a>
+						</li>-->
+
+					</ul>
+				</nav>
 				<div class="navbar__search search">
 					<form>
 						<div class="control">
-							<label for="search" class="visuallyhidden">Поиск</label>
-							<input id="search" type="text"/>
+							<label for="search" class="control__label visuallyhidden">Поиск</label>
+							<input value="" class="control__field control__field_input" id="search" type="text"/>
 							<i class="icon icon-search"></i>
 						</div>
 					</form>
@@ -45,17 +161,5 @@
 		</div>
 	</div>
 
-	<div class="header__info">
-		<div class="container">
-			<div class="info">
-				<div class="info__brand brand">
-					<img class="brand__logo" src="images/logo.jpg" alt="">
-					<span class="brand__title">Молния</span>
-				</div>
-				<div class="info__body">
 
-				</div>
-			</div>
-		</div>
-	</div>
 </header>

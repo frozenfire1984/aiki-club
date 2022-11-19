@@ -1,0 +1,7 @@
+@use "sass:meta";
+//@layer sanitize {
+  @include meta.load-css("../../node_modules/sanitize.css/assets.css");
+  @include meta.load-css("../../node_modules/sanitize.css/forms.css");
+  @include meta.load-css("../../node_modules/sanitize.css/reduce-motion.css");
+  @include meta.load-css("../../node_modules/sanitize.css/sanitize.css");
+//}

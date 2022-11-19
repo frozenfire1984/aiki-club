@@ -13,6 +13,7 @@ const autoprefixer = require("autoprefixer");
 const postcssRem = require('postcss-rem');
 const postcssPresetEnv = require("postcss-preset-env");
 const postcssUtilities = require('postcss-utilities');
+const postcssCascadeLayers = require('@csstools/postcss-cascade-layers');
 
 const clear = () => {
 	return del('dist')
@@ -25,13 +26,10 @@ const scss = () => {
 			outputStyle: 'expanded',
 		})
 		.on('error', sass.logError))
-		/*.pipe(autoprefixer({
-			cascade: true,
-			grid: 'no-autoplace',
-		}))*/
 		.pipe(postcss([
 			autoprefixer({grid: true}),
 			postcssUtilities({ ie8: true }),
+			//postcssCascadeLayers(),
 			postcssRem({
 				fallback: true,
 			}),
@@ -72,6 +70,9 @@ const script = () => {
 const sanitize = () => {
 	return src('./node_modules/sanitize.css/*.css')
 		.pipe(concat('sanitize.build.css'))
+		/*.pipe(postcss([
+			postcssCascadeLayers({ onImportLayerRule: 'warn' }),
+		]))*/
 		.pipe(dest('dist/styles'))
 		.on('finish', () => {
 			log("sanitize copied")
@@ -88,7 +89,7 @@ const copy = () => {
 
 const serve = () => {
 	browserSync.init({
-		server: './dist'
+		server: './dist',
 	})
 	
 	watch('src/**/*.html', series(html)).on('change', browserSync.reload)
@@ -96,5 +97,5 @@ const serve = () => {
 	watch('src/js/**/*.js', series(script)).on('change', browserSync.reload)
 }
 
-exports.serve = series(clear, scss, sanitize, html, copy, script, serve)
-exports.build = series(clear, scss, sanitize, html, copy, script)
+exports.serve = series(clear, scss, html, copy, script, serve)
+exports.build = series(clear, scss, html, copy, script)

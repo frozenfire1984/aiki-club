@@ -1,0 +1,24 @@
+//@layer helpers {
+  .no-display, .visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+  }
+
+  .hide {
+    display: none !important;
+  }
+
+  .disabled, [disabled] {
+    filter: grayscale(100%);
+    pointer-events: none;
+    opacity: .7;
+  }
+//}

@@ -1,41 +1,102 @@
 @use "sass:map";
+@use "sass:color";
 @use "vars" as *;
+@use "mixins" as *;
 
-@layer elements {
+//@layer elements {
   .container {
     max-width: 1200px;
     padding-inline: map.get($sizes, "pad");
     margin-inline: auto;
   }
 
+  section {
+    padding-block: rem(50px);
+  }
+
+  .section-heading {
+    margin: 0 0 1em;
+    font-size: rem(39px);
+    color: color.adjust(map.get($colors, primary, solid), $lightness: -20%);
+    font-weight: 300;
+    letter-spacing: .02em;
+
+    @media (max-width: #{map.get($media, sm, lt)}) {
+      text-align: center;
+    }
+  }
+
   .brand {
     display: flex;
+    align-content: stretch;
     align-items: stretch;
-    gap: rem(17px);
+    gap: .5em;
+    //height: inherit;
+    //min-height: inherit;
+    font-size: rem(27px);
+    @include link-reset();
+    overflow: hidden;
 
     &__logo {
-      flex: 0 1 rem(73px);
-      //aspect-ratio: 1 / 1;
+      //height: inherit;
+      //min-height: inherit;
+      overflow: hidden;
+      object-fit: contain;
+      flex: 0 1 3.5em;
+      max-width: 3.5em;
     }
 
     &__title {
+      //position: relative;
+      //top: -.05em;
       align-self: center;
-      font-size: rem(27px);
-      color: map.get($colors, "primary", "accent");
+      color: map.get($colors, primary, accent);
+      font-family: 'Play', sans-serif;
       letter-spacing: .05em;
+      //line-height: 1;
     }
   }
 
-  .no-display, .visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    white-space: nowrap;
+  .btn {
+    display: inline-flex;
+    border: 1px transparent solid;
+    background-color: map.get($colors, primary, solid);
+    min-height: em(map.get($sizes, control, default));
+    align-items: center;
+    justify-content: center;
+    padding: .1em 1em;
+    border-radius: .5em;
+    @include link-reset(map.get($colors, text, inverted));
+    @include hover-effect;
+    color: map.get($colors, text, inverted);
+
+    &_accent {
+      background-color: map.get($colors, primary, accent);
+    }
+
+    &_outline {
+      background-color: transparent;
+      color: map.get($colors, primary, solid);
+      border-color: currentColor;
+
+      &:hover, &:active {
+        &::before {
+          opacity: .2;
+        }
+      }
+    }
+
+    &_sm {
+      font-size: map.get($typo, size, em, sm);
+    }
+
+    &_lg {
+      font-size: map.get($typo, size, em, lg);
+    }
+
+    &_block {
+      display: flex;
+      width: 100%;
+    }
   }
-}
+//}

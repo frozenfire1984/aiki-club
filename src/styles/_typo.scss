@@ -1,13 +1,20 @@
-@layer typo {
+@use "sass:map";
+@use "vars" as *;
+
+//@layer typo {
   $size: 30px;
 
   @for $i from 1 through 6 {
     h#{$i} {
       color: hsl(0deg, 0%, 30%);
-      font-weight: 600;
+      font-weight: 400;
+      font-family: 'Play', sans-serif;
       font-size: rem($size);
       $size: $size - 2px;
+      line-height: 1.1;
+
+
     }
   }
-}
+//}
 

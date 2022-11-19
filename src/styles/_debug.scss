@@ -4,40 +4,40 @@
 @use "sass:string";
 @use "vars" as *;
 
-@layer debug {
+//@layer debug {
   .screen-info {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10000;
-    background: #fff;
+    background-color: #fff;
     padding: 10px;
     box-shadow: 0 0 5px hsla(0,0%,0%,.5);
     color: #000;
     --size: "xxs";
 
-    &#{&}_top-right {
+    &_top-right {
       right: 0;
       left: auto;
     }
 
-    &#{&}_bottom-right {
+    &_bottom-right {
       top: auto;
       right: 0;
       bottom: 0;
       left: auto;
     }
 
-    &#{&}_bottom-left {
+    &_bottom-left {
       top: auto;
       bottom: 0;
     }
 
-    &#{&}_hidden {
+    &_hidden {
       display: none;
     }
 
-    body:hover &#{&}_by-hover-body-hidden {
+    body:hover &_by-hover-body-hidden {
       display: none;
     }
 
@@ -51,11 +51,7 @@
       }
     }
   }
-
-  .hide {
-    display: none !important;
-  }
-}
+//}
 
 
 

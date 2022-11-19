@@ -1,21 +1,66 @@
 @use "sass:map";
-@use "vars" as v;
+@use "sass:color";
+@use "vars" as *;
+@use "mixins" as *;
 
-@layer forms {
+//@layer forms {
   .control {
-    &__field {
-      width: 100%;
-      border-radius: rem(6px);
-      border: 1px map.get(v.$colors, "muted", "regular") solid;
-      @debug v.$colors;
+    position: relative;
+    margin-block: rem(15px);
+    font-size: map.get($typo, size, em, md);
 
+    &_sm {
+      font-size: map.get($typo, size, em, sm);
+    }
+
+    &_lg {
+      font-size: map.get($typo, size, em, lg);
+    }
+
+    &__label {
+      display: block;
+      font-weight: 600;
+      color: color.adjust(map.get($colors, primary, solid), $lightness: -15%);
+    }
+
+    &__field {
       &_input {
-        height: rem(37px);
+        width: 100%;
+        height: em(map.get($sizes, control, default));
+        border-radius: rem(6px);
+        border: 1px map.get($colors, muted, regular) solid;
+        padding-inline: .8em;
+        text-overflow: ellipsis;
+        background-color: map.get($colors, primary, space);
+        color: map.get($colors, text, regular);
+
+        &:is(textarea) {
+          min-height: em(80px);
+          max-height: em(200px);
+          resize: vertical;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: map.get($colors, "primary", "solid");
+
+          & + .icon {
+            color: map.get($colors, "primary", "solid");
+          }
+        }
       }
     }
 
-    *:nth-last-child(3) + .control__label + .control__input {
-      //outline: 1px red solid;
+    *:nth-last-child(3) + .control__field_input:not(textarea) {
+      padding-right: 2em;
+    }
+
+    .icon {
+      position: absolute;
+      bottom: .5em;
+      right: .5em;
+      color: map.get($colors, muted, regular);
+      font-size: 1.2em;
     }
   }
-}
+//}

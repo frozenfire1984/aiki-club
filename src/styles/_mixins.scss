@@ -1,39 +1,111 @@
 @use 'sass:math';
-//@use 'vars' as *;
+@use 'sass:map';
+@use 'vars' as *;
 
-//@layer mixins {
-  @mixin fill {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
+@mixin fill {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
 
-  @mixin reset {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+@mixin reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-  @mixin link-reset($color: $color-text) {
+@mixin link-reset($color: inherit) {
+  color: $color;
+
+  &:where(:link, :visited, :hover, :active) {
     color: $color;
+    text-decoration: none;
+  }
+}
 
-    &:link, &:visited, &:hover, &:active {
-      color: $color;
-      text-decoration: none;
+@mixin hover-effect($opacity: .5, $bg: #000) {
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #000;
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: inherit;
+
+    @media (hover: hover) and (pointer: fine) {
+      transition: map.get($misc, dur);
     }
   }
 
-  //@function rem($val) {
-    //$remSize: math.div($val, $px-size);
-    //@return #{$remSize}rem;
-    //@return $val
-  //}
+  &.btn::before {
+    inset: -1px;
+  }
 
-  //@function rem_xxs($val) {
-    //$remSize: math.div($val, $px-size_xxs);
-    //@return #{$remSize}rem;
-    //@return $val
-  //}
-//}
+  &:hover, &:active {
+    &::before {
+      opacity: $opacity;
+    }
+  }
+}
+
+@mixin decor($color, $offset, $hover: false, $reverse: false, $radius: 5px) {
+  $pixel: 0px;
+  --offset: #{$offset};
+  position: relative;
+
+  @if ($radius % 2 == 1px) {
+    $pixel: 1px;
+  }
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    transition: all 1s ease;
+    transition-property: top, bottom;
+  }
+
+  &::after {
+    @util circle(#{$radius}, #{$color});
+    left: calc((#{$radius} - #{$pixel}) / 2 * -1);
+    @if ($reverse) {
+      top: auto;
+      bottom: var(--offset);
+    } @else {
+      top: var(--offset);
+      bottom: auto;
+    }
+  }
+
+  &::before {
+    @if ($reverse) {
+      bottom: calc(var(--offset) + #{$radius} + 1px);
+      top: 0;
+    } @else {
+      top: calc(var(--offset) + #{$radius} + 1px);
+      bottom: 0;
+    }
+    left: 0;
+    width: 1px;
+    border-left: 1px $color dotted;
+  }
+
+  @if ($hover) {
+    &:hover {
+      --offset: calc(#{$offset} - 20%);
+    }
+  }
+}
+
+@function em($val) {
+  $emSize: math.div($val, 16px);
+  @return #{$emSize}em;
+}
+

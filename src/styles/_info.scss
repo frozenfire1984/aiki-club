@@ -1,0 +1,124 @@
+@use "sass:map";
+@use "vars" as *;
+@use "mixins" as *;
+
+//@layer info{
+  .info {
+    --padding-top: .18rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2em;
+
+    &__inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .59em 1.175em;
+    }
+
+    &__brand {
+      display: none;
+    }
+
+    &__item {
+      position: relative;
+      flex: 0 1 auto;
+      display: flex;
+      align-items: start;
+      gap: .2em;
+      padding-top: var(--padding-top);
+      line-height: 1;
+
+      &_title {
+        padding-top: 0;
+        font-family: 'Play', sans-serif;
+      }
+    }
+
+    &__title {
+      margin: 0;
+      padding-left: 1.1em;
+      font-size: 1.234em;
+      font-weight: normal;
+    }
+
+    &__phone {
+      @include link-reset();
+    }
+
+    &__address {
+      &-body {
+        font-style: normal;
+      }
+
+      &-direction {
+        margin: .5em 0 0;
+        font-size: .7em;
+      }
+    }
+
+    .icon {
+      position: relative;
+      top: -.1em;
+      font-size: 1.2em;
+      color: map.get($colors, primary, accent);
+      z-index: 10;
+    }
+
+    @media (min-width: #{map.get($media, lg, gt)}) {
+      font-size: em(17px);
+      align-items: stretch;
+
+
+
+
+      &__inner {
+        justify-content: end;
+        align-items: stretch;
+        min-height: rem(72px);
+        row-gap: 0;
+        flex-wrap: nowrap;
+      }
+
+      &__brand {
+        display: flex;
+        margin-right: auto;
+        align-self: stretch;
+        height: rem(72px);
+        flex-shrink: 0;
+      }
+
+      &__item {
+        --padding-top-lg: 1.6rem;
+        min-height: rem(45px);
+        align-self: flex-end;
+        padding-bottom: rem(7px);
+        min-width: fit-content;
+        //padding: rem(0 0 5px);
+        //padding-top: calc(var(--padding-top-lg) + var(--padding-top));
+        @include decor(fade-out(map.get($colors, primary, solid), .3), 27%, false);
+        &::before, &::after {
+          transform: translateX(.56em);
+        }
+
+        &_title {
+          min-width: auto;
+          text-align: right;
+          //flex-grow: 1;
+          //@include decor(fade-out(map.get($colors, primary, solid), .3), 60%, false);
+          //padding-top: var(--padding-top-lg);
+         //max-width: rem(900px);
+          //background: red;
+          &::before, &::after {
+
+            transform: translateX(.8em);
+          }
+
+          &::before {
+            //top: rem(-27px);
+          }
+        }
+      }
+    }
+  }
+//}

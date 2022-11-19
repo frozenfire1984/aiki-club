@@ -3,19 +3,124 @@
 @@include('inc/head.html')
 <body>
 @@include('inc/header.html')
-<div class="primary">
+<main class="primary">
 	<div class="container">
-		<div class="control">
-			<label for="search" class="control__label visuallyhidden_">Поиск</label>
-			<input class="control__field control__field_input" id="search" type="text"/>
+		<section>
+			<h2 class="section-heading visuallyhidden_">Дополнительная навигация</h2>
+
+			<ul class="add-menu">
+				<li class="add-menu__item">
+					<a class="add-menu__link" href="#">
+						<span class="add-menu__img-holder">
+							<img class="add-menu__img" src="images/icon_history.png" alt=""/>
+						</span>
+						<span class="add-menu__title">Айкидо История</span>
+					</a>
+				</li>
+
+				<li class="add-menu__item">
+					<a class="add-menu__link" href="#">
+						<div class="add-menu__img-holder">
+							<img class="add-menu__img" src="images/icon_teachers.png" alt=""/>
+						</div>
+						<span class="add-menu__title">Учителя</span>
+					</a>
+				</li>
+
+				<li class="add-menu__item">
+					<a class="add-menu__link" href="#">
+						<span class="add-menu__img-holder">
+							<img class="add-menu__img" src="images/icon_weapon.png" alt=""/>
+						</span>
+						<span class="add-menu__title">Оружие Айкидо</span>
+					</a>
+				</li>
+
+				<li class="add-menu__item">
+					<a class="add-menu__link" href="#">
+						<span class="add-menu__img-holder">
+							<img class="add-menu__img" src="images/icon_children.png" alt=""/>
+						</span>
+						<span class="add-menu__title">Детская страничка</span>
+					</a>
+				</li>
+
+				<li class="add-menu__item">
+					<a class="add-menu__link" href="#">
+						<span class="add-menu__img-holder">
+							<img class="add-menu__img" src="images/icon_schedule.png" alt=""/>
+						</span>
+						<span class="add-menu__title">Расписание занятий</span>
+					</a>
+				</li>
+
+			</ul>
+		</section>
+
+		<section>
+			<h2 class="section-heading">Новости</h2>
+		</section>
+
+
+
+
+
+		<!--<div class="control">
+			<label for="search" class="control__label visuallyhidden">Поиск</label>
+			<input value="" class="control__field control__field_input control__field_input_sm" id="search" type="text"/>
 			<i class="icon icon-search"></i>
 		</div>
 
-	</div>
-</div>
-@@include('inc/footer.html')
-<script>
+		<div class="control control_lg">
+			<label for="search" class="control__label visuallyhidden">Поиск</label>
+			<input value="" class="control__field control__field_input control__field_input_lg" id="search" type="text"/>
+			<i class="icon icon-search"></i>
+		</div>
 
-</script>
+
+
+
+<div class="navbar__brand brand">
+					<img class="brand__logo" src="images/logo.jpg" alt="">
+					<span class="brand__title">Молния</span>
+
+
+		<div class="control">
+			<a href="#" class="btn">Button</a>
+			<a href="#" class="btn btn_sm">Button</a>
+			<a href="#" class="btn btn_lg">Button</a>
+			<a href="#" class="btn btn_accent">Button</a>
+			<a href="#" class="btn btn_outline">Button</a>
+			<a href="#" class="btn btn_block btn_lg">Button</a>
+		</div>-->
+		<div class="control">
+			<label for="search" class="control__label visuallyhidden">Поиск</label>
+			<input value="" class="control__field control__field_input control__field_input_sm" id="search" type="text"/>
+			<i class="icon icon-search"></i>
+		</div>
+
+		<div class="brand">
+			<!--<a href="#" class="brand__logo-holder">-->
+				<!--<img class="brand__logo" src="images/logo.jpg" alt="">-->
+				<img class="brand__logo" src="https://via.placeholder.com/550x550" alt="">
+			<!--</a>-->
+			<!--<div class="brand__logo"></div>-->
+			<span class="brand__title">Молния</span>
+		</div>
+
+		<div class="control">
+			<a href="#" class="btn">Button</a>
+			<a href="#" class="btn btn_sm">Button</a>
+			<a href="#" class="btn btn_lg">Button</a>
+			<a href="#" class="btn btn_accent">Button</a>
+			<a href="#" class="btn btn_outline">Button</a>
+			<a href="#" class="btn btn_block btn_lg">Button</a>
+		</div>
+
+
+	</div>
+</main>
+@@include('inc/footer.html')
+
 </body>
 </html>

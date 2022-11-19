@@ -1,13 +1,14 @@
-@layer layout {
+//@layer layout {
   body {
     position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-width: 300px;
+    //min-width: 300px;
   }
 
   .primary {
     flex: 1;
+    padding-top: rem(20px);
   }
-}
+//}

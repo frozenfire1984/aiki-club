@@ -1,0 +1,115 @@
+@use "sass:map";
+@use "vars" as *;
+@use "mixins" as *;
+
+//@layer menu {
+  .menu {
+    background-color: darken(map.get($colors, "primary", "solid"), 10%);
+    border-top: 1px fade-out(map.get($colors, "muted", "invert"), .5) solid;
+
+    ul {
+      @util reset-list;
+      padding-bottom: .5em;
+    }
+
+    li {
+      &::before {
+        content: none;
+      }
+
+      > ul {
+        display: none;
+      }
+    }
+
+    :where(& > ul > li + li) {
+      border-top: 1px fade-out(map.get($colors, "muted", "invert"), .5) dotted;
+    }
+
+    a {
+      @include link-reset;
+      display: block;
+      padding: .7em .5em;
+      @include hover-effect(.2);
+    }
+
+    @media (min-width: #{map.get($media, sm, gt)}) {
+      > ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 0;
+        justify-content: center;
+
+        > li {
+          border-top: none;
+
+          @media (max-width: #{map.get($media, lg, lt)}) {
+            > a {
+              padding-inline: .7vw;
+            }
+
+            $var: 5.5vw;
+            $delta: .6vw;
+
+            @for $i from 1 through 8 {
+              $var: $var - $delta;
+
+              &:nth-last-child(#{$i}) {
+                &,& ~ li {
+                  > a {
+                    padding-inline: MAX(#{$var}, 5px);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      a {
+        //padding-inline: 2.5vw;
+      }
+
+      /*&:nth-last-child(7) {
+        &,& ~ li {
+          a {
+            padding-inline: 2vw;
+          }
+        }
+      }*/
+
+
+    }
+
+    @media (min-width: #{map.get($media, lg, gt)}) {
+      background-color: transparent;
+      border-top: none;
+
+      > ul {
+        justify-content: flex-start;
+        //flex-wrap: nowrap;
+
+        > li {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          @include decor(fade-out(map.get($colors, "muted", "invert"), .5), 38%, true);
+          min-height: rem(50px);
+          //min-height: 4.5625rem;
+
+          > a {
+            display: flex;
+            align-items: center;
+
+
+            flex: 1;
+            padding: rem(0 26px 3px 8px);
+            min-width: rem(127px);
+            line-height: .2;
+          }
+        }
+      }
+    }
+
+  }
+//}

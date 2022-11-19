@@ -1,22 +1,30 @@
 @use "sass:map";
 @use "vars" as *;
 
-@layer base {
-  html {
-    font-size: 62.5%;
+//@layer base {
+html {
+  font-size: 70%;
 
-    @media (min-width: #{map.get($media, sm, gt)}) {
-      font-size: 80%;
-    }
-
-    @media (min-width: #{map.get($media, lg, gt)}) {
-      font-size: 100%;
-    }
+  @media (min-width: #{map.get($media, xs, gt)}) {
+    font-size: 80%;
   }
 
-  body {
-    font-family: 'Tahoma', sans-serif;
-    font-size: rem(16px);
+  @media (min-width: #{map.get($media, md, gt)}) {
+    font-size: 90%;
+  }
+
+  @media (min-width: #{map.get($media, lg, gt)}) {
+    font-size: 83%;
+  }
+
+  @media (min-width: #{map.get($media, xl, gt)}) {
+    font-size: 100%;
   }
 }
+
+body {
+  font-family: 'Tahoma', sans-serif;
+  font-size: rem(16px);
+}
+//}
 
